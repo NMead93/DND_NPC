@@ -1,0 +1,16 @@
+ <div class="create-form">
+     <form class="" action="index.html" method="post">
+         <label for="">Name</label>
+         <input type="text" name="name" #name>
+         <label for="">Race</label>
+         <input type="text" name="race" value="" #race>
+         <label for="">Gender</label>
+         <select class="" name="gender" #gender>
+             <option value="male">Male</option>
+             <option value="female">Female</option>
+         </select>
+         <label for="">Class</label>
+         <input type="text" name="class" #class>
+         <button type="button" (click)="finishCreate(name.value, race.value, gender.value, class.value)" name="finish">Finished</button>
+     </form>
+ </div>
