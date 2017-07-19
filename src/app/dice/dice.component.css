@@ -1,0 +1,7 @@
+.dice-piece {
+    font-size: 200px;
+}
+
+.dice-piece:hover {
+    cursor: pointer;
+}

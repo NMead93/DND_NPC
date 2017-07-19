@@ -6,6 +6,9 @@ import { AngularFireModule } from 'angularfire2';
 import { AppComponent } from './app.component';
 import { CreateComponent } from './create/create.component';
 import { CreateService } from './create.service';
+import { SliderModule } from 'primeng/primeng';
+import { FormsModule } from '@angular/forms';
+import { DiceComponent } from './dice/dice.component';
 
 export const firebaseConfig = {
   apiKey: firebaseAuth.apiKey,
@@ -17,10 +20,13 @@ export const firebaseConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    CreateComponent
+    CreateComponent,
+    DiceComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    SliderModule,
     AngularFireModule.initializeApp(firebaseAuth),
     AngularFireDatabaseModule
   ],

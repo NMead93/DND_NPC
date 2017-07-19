@@ -10,7 +10,38 @@
              <option value="female">Female</option>
          </select>
          <label for="">Class</label>
-         <input type="text" name="class" #class>
+         <input type="text" pInputText name="class" #class>
+
+         <div class="stat-option">
+             <button type="button" name="button">"Standard Array"</button>
+             <button type="button" name="button">Roll for Stats</button>
+             <button type="button" name="button">Point buy</button>
+         </div>
+
+         <app-dice></app-dice>
+
+         <div class="stats">
+             <h3>Strength: {{strength}}</h3>
+             <p-slider [style]="{'width': '200px'}" [animate]="true" [(ngModel)]="strength" [min]="1" [max]="20" name="character-strength"></p-slider>
+
+             <h3>Dexterity: {{dexterity}}</h3>
+             <p-slider [style]="{'width': '200px'}" [animate]="true" [(ngModel)]="dexterity" [min]="1" [max]="20" name="character-dexterity"></p-slider>
+
+             <h3>Constitution: {{constitution}}</h3>
+             <p-slider [style]="{'width': '200px'}" [animate]="true" [(ngModel)]="constitution" [min]="1" [max]="20" name="character-constitution"></p-slider>
+
+             <h3>Intelligence: {{intelligence}}</h3>
+             <p-slider [style]="{'width': '200px'}" [animate]="true" [(ngModel)]="intelligence" [min]="1" [max]="20" name="character-intelligence"></p-slider>
+
+             <h3>Wisdom: {{wisdom}}</h3>
+             <p-slider [style]="{'width': '200px'}" [animate]="true" [(ngModel)]="wisdom" [min]="1" [max]="20" name="character-wisdom"></p-slider>
+
+             <h3>Charisma: {{charisma}}</h3>
+             <p-slider [style]="{'width': '200px'}" [animate]="true" [(ngModel)]="charisma" [min]="1" [max]="20" name="character-charisma"></p-slider>
+         </div>
+
          <button type="button" (click)="finishCreate(name.value, race.value, gender.value, class.value)" name="finish">Finished</button>
      </form>
+
+
  </div>
