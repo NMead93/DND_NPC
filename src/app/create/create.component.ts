@@ -21,8 +21,8 @@ export class CreateComponent implements OnInit
   ngOnInit() {
   }
 
-  finishCreate(name: string, race: string, gender: string,  characterClass: string){
-      let newCharacter: Character = new Character(name, race, gender, characterClass);
+  finishCreate(name: string, race: string, gender: string,  characterClass: string, newStrength: number, newDexterity: number, newConstitution: number, newIntelligence: number, newWisdom: number, newCharisma: number){
+      let newCharacter: Character = new Character(name, race, gender, characterClass, newStrength, newDexterity, newConstitution, newIntelligence, newWisdom, newCharisma);
       this.createService.addCharacter(newCharacter);
   }
 }
