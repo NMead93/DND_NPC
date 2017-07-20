@@ -17,9 +17,12 @@ characterList: FirebaseListObservable<any[]>;
   addCharacter(newCharacter: Character) {
       this.characterList.push(newCharacter);
   }
-
   getEquipInfoCall() {
     return this.http.get("http://www.dnd5eapi.co/api/equipment")
         .map((res:Response) => res.json());
+  }
+
+  getCharacterList(){
+    return this.characterList;
   }
 }

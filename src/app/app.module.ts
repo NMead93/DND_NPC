@@ -14,6 +14,7 @@ import { InventoryCreationComponent } from './inventory-creation/inventory-creat
 import {InputTextModule} from 'primeng/primeng';
 import {DialogModule} from 'primeng/primeng';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NpcDetailComponent } from './npc-detail/npc-detail.component';
 
 export const firebaseConfig = {
   apiKey: firebaseAuth.apiKey,
@@ -27,7 +28,8 @@ export const firebaseConfig = {
     AppComponent,
     CreateComponent,
     DiceComponent,
-    InventoryCreationComponent
+    InventoryCreationComponent,
+    NpcDetailComponent,
   ],
   imports: [
     BrowserModule,
