@@ -1,3 +1,4 @@
 <h1>Home page</h1>
 
-<app-create></app-create>
+<button *ngIf="!formShowing" (doneWithForm)="hideform()" type="button" (click)="showForm()">Add NPC</button>
+<app-create *ngIf="formShowing"></app-create>

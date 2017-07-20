@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core'
 import { Character } from '../character.model';
 import { CreateService } from '../create.service';
 
@@ -10,6 +10,7 @@ import { CreateService } from '../create.service';
 })
 export class CreateComponent implements OnInit
 {
+    @Output() doneWithForm = new EventEmitter();
     strength: number = 10;
     dexterity: number = 10;
     constitution: number = 10;
@@ -24,5 +25,6 @@ export class CreateComponent implements OnInit
   finishCreate(name: string, race: string, gender: string,  characterClass: string){
       let newCharacter: Character = new Character(name, race, gender, characterClass);
       this.createService.addCharacter(newCharacter);
+      this.doneWithForm.emit(true);
   }
 }
