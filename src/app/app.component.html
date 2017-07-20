@@ -4,7 +4,7 @@
 <app-create *ngIf="formShowing" (doneWithForm)="hideForm()"></app-create>
 
 <div class="list-holder">
-  <div *ngFor="let npc of characterList | async">
+  <div *ngFor="let npc of subscribedCharacterList">
     <h1> {{npc?.name}}</h1>
   </div>
 </div>

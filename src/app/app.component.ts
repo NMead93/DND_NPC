@@ -12,13 +12,17 @@ export class AppComponent implements OnInit{
   title = 'DM-manager';
   formShowing: boolean;
   characterList: FirebaseListObservable<any[]>;
+  subscribedCharacterList: any[];
 
   constructor(private createService: CreateService){
     this.formShowing = false;
   }
 
   ngOnInit(){
-    this.characterList = this.createService.getCharacterList()
+    this.characterList = this.createService.getCharacterList();
+    this.characterList.subscribe(data => {
+      this.subscribedCharacterList = data;
+    })
   }
 
   hideForm(){
