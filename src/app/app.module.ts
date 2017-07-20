@@ -8,7 +8,12 @@ import { CreateComponent } from './create/create.component';
 import { CreateService } from './create.service';
 import { SliderModule } from 'primeng/primeng';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 import { DiceComponent } from './dice/dice.component';
+import { InventoryCreationComponent } from './inventory-creation/inventory-creation.component';
+import {InputTextModule} from 'primeng/primeng';
+import {DialogModule} from 'primeng/primeng';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export const firebaseConfig = {
   apiKey: firebaseAuth.apiKey,
@@ -21,12 +26,17 @@ export const firebaseConfig = {
   declarations: [
     AppComponent,
     CreateComponent,
-    DiceComponent
+    DiceComponent,
+    InventoryCreationComponent
   ],
   imports: [
     BrowserModule,
+    InputTextModule,
+    BrowserAnimationsModule,
     FormsModule,
+    DialogModule,
     SliderModule,
+    HttpModule,
     AngularFireModule.initializeApp(firebaseAuth),
     AngularFireDatabaseModule
   ],

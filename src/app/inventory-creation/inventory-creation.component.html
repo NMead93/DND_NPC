@@ -1,0 +1,13 @@
+<h2>Add New Equipment</h2>
+
+<form class="equipment-add">
+  <h4>Equipment Name: </h4>
+  <input type="text" size="30" pInputText #equipmentName>
+  <button type="button" name="button" (click)="getEquipmentData(equipmentName.value)">Add</button>
+</form>
+
+<p-dialog header="Did you mean..." [(visible)]="displayMultiItemPrompt" modal="modal" width="300" [responsive]="true">
+  <div *ngFor="let item of equipmentQueryResults">
+    <p>{{item.name}}</p>
+  </div>
+</p-dialog>
