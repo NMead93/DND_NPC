@@ -2,3 +2,9 @@
 
 <button *ngIf="!formShowing" type="button" (click)="showForm()">Add NPC</button>
 <app-create *ngIf="formShowing" (doneWithForm)="hideForm()"></app-create>
+
+<div class="list-holder">
+  <div *ngFor="let npc of characterList | async">
+    <h1> {{npc?.name}}</h1>
+  </div>
+</div>

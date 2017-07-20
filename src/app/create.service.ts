@@ -15,4 +15,8 @@ characterList: FirebaseListObservable<any[]>;
   addCharacter(newCharacter: Character) {
       this.characterList.push(newCharacter);
   }
+
+  getCharacterList(){
+    return this.characterList;
+  }
 }
