@@ -9,6 +9,7 @@ import { CreateService } from './create.service';
 import { SliderModule } from 'primeng/primeng';
 import { FormsModule } from '@angular/forms';
 import { DiceComponent } from './dice/dice.component';
+import { NpcDetailComponent } from './npc-detail/npc-detail.component';
 
 export const firebaseConfig = {
   apiKey: firebaseAuth.apiKey,
@@ -21,7 +22,8 @@ export const firebaseConfig = {
   declarations: [
     AppComponent,
     CreateComponent,
-    DiceComponent
+    DiceComponent,
+    NpcDetailComponent
   ],
   imports: [
     BrowserModule,

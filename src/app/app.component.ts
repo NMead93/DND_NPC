@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CreateService } from './create.service';
 import { FirebaseListObservable } from 'angularfire2/database';
+import { Character } from './character.model';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,7 @@ export class AppComponent implements OnInit{
   formShowing: boolean;
   characterList: FirebaseListObservable<any[]>;
   subscribedCharacterList: any[];
+  selectedNPC: Character;
 
   constructor(private createService: CreateService){
     this.formShowing = false;
@@ -33,5 +35,9 @@ export class AppComponent implements OnInit{
   showForm(){
     this.formShowing = true;
     console.log("show form", this.formShowing)
+  }
+
+  npcDetail(npc){
+    this.selectedNPC = npc;
   }
 }
