@@ -15,9 +15,11 @@ export class AppComponent {
 
   hideForm(){
     this.formShowing = false;
+    console.log("hide form", this.formShowing)
   }
 
   showForm(){
     this.formShowing = true;
+    console.log("show form", this.formShowing)
   }
 }
