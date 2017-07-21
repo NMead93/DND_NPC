@@ -25,7 +25,7 @@ export class InventoryCreationComponent implements OnInit {
       this.equipmentQueryResults = [];
       //must loop through response because api call is stupid and can't request by name
       for (var i = 0; i < response.results.length; i++) {
-        if(response.results[i].name.toLowerCase().includes(equipmentName)) {
+        if(response.results[i].name.toLowerCase().includes(equipmentName.toLowerCase())) {
           currentContext.equipmentQueryResults.push(response.results[i]);
         }
       }
@@ -38,6 +38,10 @@ export class InventoryCreationComponent implements OnInit {
         }
 
         currentContext.displayMultiItemPrompt = true;
+      } else if (currentContext.equipmentQueryResults.length == 1) {
+        console.log("one item returned");
+      } else {
+        console.log("Item doesn't exist.....dumbass");
       }
     })
   }
@@ -48,7 +52,7 @@ export class InventoryCreationComponent implements OnInit {
     var currentContext = this;
     this.createService.getIndividualEquipment(this.selectedItemApiUrl).subscribe(data => {
       var response = data;
-      currentContext.newItemAdded.emit("test");
+      currentContext.newItemAdded.emit(new Item(response.name, response.equipment_category, response.cost.quantity, response.cost.unit));
 
     })
   }

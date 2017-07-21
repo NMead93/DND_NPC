@@ -31,8 +31,9 @@ export class CreateComponent implements OnInit
       this.doneWithForm.emit(true);
   }
 
-  addToCreatePlayerItemList(test) {
-    console.log(test);
+  addToCreatePlayerItemList(newItem) {
+    console.log(newItem);
+    this.addedItemList.push(newItem);
   }
 
 }
