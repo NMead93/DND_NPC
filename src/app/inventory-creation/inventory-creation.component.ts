@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { CreateService } from '../create.service';
+import { Item } from '../item.model';
 
 @Component({
   selector: 'app-inventory-creation',
@@ -9,16 +10,19 @@ import { CreateService } from '../create.service';
 export class InventoryCreationComponent implements OnInit {
   equipmentQueryResults: { name: string, url: string }[] = [];
   displayMultiItemPrompt: boolean = false;
+  selectedItemApiUrl: string;
+  @Output() newItemAdded = new EventEmitter();
 
   constructor(private createService: CreateService) { }
 
   ngOnInit() {
   }
 
-  getEquipmentData(equipmentName: string) {
+  getAllEquipmentData(equipmentName: string) {
     this.createService.getEquipInfoCall().subscribe(data => {
       var response = data;
       var currentContext = this;
+      this.equipmentQueryResults = [];
       //must loop through response because api call is stupid and can't request by name
       for (var i = 0; i < response.results.length; i++) {
         if(response.results[i].name.toLowerCase().includes(equipmentName)) {
@@ -35,6 +39,17 @@ export class InventoryCreationComponent implements OnInit {
 
         currentContext.displayMultiItemPrompt = true;
       }
+    })
+  }
+
+
+  addItem() {
+    this.displayMultiItemPrompt = false;
+    var currentContext = this;
+    this.createService.getIndividualEquipment(this.selectedItemApiUrl).subscribe(data => {
+      var response = data;
+      currentContext.newItemAdded.emit("test");
+
     })
   }
 

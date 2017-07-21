@@ -15,6 +15,7 @@ import {InputTextModule} from 'primeng/primeng';
 import {DialogModule} from 'primeng/primeng';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NpcDetailComponent } from './npc-detail/npc-detail.component';
+import {RadioButtonModule} from 'primeng/primeng';
 
 export const firebaseConfig = {
   apiKey: firebaseAuth.apiKey,
@@ -36,6 +37,7 @@ export const firebaseConfig = {
     InputTextModule,
     BrowserAnimationsModule,
     FormsModule,
+    RadioButtonModule,
     DialogModule,
     SliderModule,
     HttpModule,

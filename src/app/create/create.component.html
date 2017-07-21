@@ -33,7 +33,7 @@
              <p-slider [style]="{'width': '200px'}" [animate]="true" [(ngModel)]="charisma" [min]="1" [max]="20" name="character-charisma"></p-slider>
          </div>
 
-         <app-inventory-creation></app-inventory-creation>
+         <app-inventory-creation (newItemAdded)="addToCreatePlayerItemList($event)"></app-inventory-creation>
 
          <button type="button" (click)="finishCreate(name.value, race.value, gender.value, class.value, strength, dexterity, constitution, intelligence, wisdom, charisma)" name="finish">Finished</button>
      </form>

@@ -3,11 +3,15 @@
 <form class="equipment-add">
   <h4>Equipment Name: </h4>
   <input type="text" size="30" pInputText #equipmentName>
-  <button type="button" name="button" (click)="getEquipmentData(equipmentName.value)">Add</button>
+  <button type="button" name="button" (click)="getAllEquipmentData(equipmentName.value)">Add</button>
 </form>
 
 <p-dialog header="Did you mean..." [(visible)]="displayMultiItemPrompt" modal="modal" width="300" [responsive]="true">
-  <div *ngFor="let item of equipmentQueryResults">
-    <p>{{item.name}}</p>
+  <div class="ui-g" *ngFor="let item of equipmentQueryResults">
+    <div class="ui-g-12"><p-radioButton name={{item.name}} value={{item.url}} label={{item.name}} [(ngModel)]="selectedItemApiUrl"></p-radioButton></div>
   </div>
+
+  <p-footer>
+    <button type="button" pButton icon="fa-check" label="Confirm" (click)="addItem()" name="button"></button>
+  </p-footer>
 </p-dialog>

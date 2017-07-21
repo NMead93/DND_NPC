@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core'
 import { Character } from '../character.model';
 import { CreateService } from '../create.service';
+import { Item } from '../item.model';
 
 @Component({
   selector: 'app-create',
@@ -11,7 +12,7 @@ import { CreateService } from '../create.service';
 export class CreateComponent implements OnInit
 {
   @Output() doneWithForm = new EventEmitter();
-
+  addedItemList: Item[] = [];
   strength: number = 10;
   dexterity: number = 10;
   constitution: number = 10;
@@ -29,4 +30,9 @@ export class CreateComponent implements OnInit
       this.createService.addCharacter(newCharacter);
       this.doneWithForm.emit(true);
   }
+
+  addToCreatePlayerItemList(test) {
+    console.log(test);
+  }
+
 }
