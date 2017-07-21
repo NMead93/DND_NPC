@@ -40,6 +40,8 @@ export class InventoryCreationComponent implements OnInit {
         currentContext.displayMultiItemPrompt = true;
       } else if (currentContext.equipmentQueryResults.length == 1) {
         console.log("one item returned");
+        currentContext.selectedItemApiUrl = currentContext.equipmentQueryResults[0].url;
+        currentContext.addItem();
       } else {
         console.log("Item doesn't exist.....dumbass");
       }

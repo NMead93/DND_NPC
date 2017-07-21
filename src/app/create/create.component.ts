@@ -32,8 +32,8 @@ export class CreateComponent implements OnInit
   }
 
   addToCreatePlayerItemList(newItem) {
-    console.log(newItem);
     this.addedItemList.push(newItem);
+    console.log(this.addedItemList);
   }
 
 }
