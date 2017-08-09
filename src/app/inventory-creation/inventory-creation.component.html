@@ -6,12 +6,6 @@
   <button type="button" name="button" (click)="getAllEquipmentData(equipmentName.value)">Add</button>
 </form>
 
-<p-dialog header="Did you mean..." [(visible)]="displayMultiItemPrompt" modal="modal" width="300" [responsive]="true">
-  <div class="ui-g" *ngFor="let item of equipmentQueryResults">
-    <div class="ui-g-12"><p-radioButton name={{item.name}} value={{item.url}} label={{item.name}} [(ngModel)]="selectedItemApiUrl"></p-radioButton></div>
-  </div>
-
-  <p-footer>
-    <button type="button" pButton icon="fa-check" label="Confirm" (click)="addItem()" name="button">Add Item</button>
-  </p-footer>
-</p-dialog>
+<div class="equipment-holder">
+  <button *ngFor="let item of equipmentQueryResults" type="button" name="button" (click)="addItem(item)">{{item?.name}}</button>
+</div>

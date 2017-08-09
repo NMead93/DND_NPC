@@ -29,34 +29,13 @@ export class InventoryCreationComponent implements OnInit {
           currentContext.equipmentQueryResults.push(response.results[i]);
         }
       }
-
-      if (currentContext.equipmentQueryResults.length > 1) {
-        let message: string = "Which item did you mean? ";
-
-        for (var i = 0; i < currentContext.equipmentQueryResults.length; i++) {
-          message += currentContext.equipmentQueryResults[i].name + " ";
-        }
-
-        currentContext.displayMultiItemPrompt = true;
-      } else if (currentContext.equipmentQueryResults.length == 1) {
-        console.log("one item returned");
-        currentContext.selectedItemApiUrl = currentContext.equipmentQueryResults[0].url;
-        currentContext.addItem();
-      } else {
-        console.log("Item doesn't exist.....dumbass");
-      }
     })
   }
 
 
-  addItem() {
-    this.displayMultiItemPrompt = false;
-    var currentContext = this;
-    this.createService.getIndividualEquipment(this.selectedItemApiUrl).subscribe(data => {
-      var response = data;
-      currentContext.newItemAdded.emit(new Item(response.name, response.equipment_category, response.cost.quantity, response.cost.unit));
-
-    })
+  addItem(item) {
+    console.log(item);
+    this.newItemAdded.emit(item);
   }
 
 }
