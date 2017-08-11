@@ -33,6 +33,13 @@
              <p-slider [style]="{'width': '200px'}" [animate]="true" [(ngModel)]="charisma" [min]="1" [max]="20" name="character-charisma"></p-slider>
          </div>
 
+         <div class="items-added">
+           <h1 id="equipment-added">Equipment Added: </h1>
+           <div class="item" *ngFor="let item of addedItemList">
+             {{item?.name}} added.
+           </div>
+         </div>
+
          <app-inventory-creation (newItemAdded)="addToCreatePlayerItemList($event)"></app-inventory-creation>
 
          <button type="button" (click)="finishCreate(name.value, race.value, gender.value, class.value, strength, dexterity, constitution, intelligence, wisdom, charisma)" name="finish">Finished</button>
@@ -40,11 +47,3 @@
 
 
  </div>
-
-
- <!-- <div class="stat-option">
- <button type="button" name="button">"Standard Array"</button>
- <button type="button" name="button">Roll for Stats</button>
- <button type="button" name="button">Point buy</button>
-</div> -->
-<!-- <app-dice></app-dice> -->

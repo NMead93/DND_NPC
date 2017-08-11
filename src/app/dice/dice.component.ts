@@ -6,20 +6,38 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dice.component.css']
 })
 export class DiceComponent implements OnInit {
-    dices: string[] = ['&#9856;', '&#9857;', '&#9858;', '&#9859;', '&#9860;', '&#9861;'];
-    dice1: string;
-    dice2: string;
-    dice3: string;
-    dice4: string;
-
+  rollArray: number[] = [];
 
   constructor() { }
 
   ngOnInit() {
-      this.dice1 = this.dices[0];
-      this.dice2 = this.dices[1];
-      this.dice3 = this.dices[2];
-      this.dice4 = this.dices[3];
   }
 
+  four() {
+    this.rollArray.push(Math.round(Math.random() * 3) + 1);
+  }
+
+  six() {
+    this.rollArray.push(Math.round(Math.random() * 5) + 1);
+  }
+
+  eight() {
+    this.rollArray.push(Math.round(Math.random() * 7) + 1);
+  }
+
+  ten() {
+    this.rollArray.push(Math.round(Math.random() * 9) + 1);
+  }
+
+  twelve() {
+    this.rollArray.push(Math.round(Math.random() * 11) + 1);
+  }
+
+  twenty() {
+    this.rollArray.push(Math.round(Math.random() * 19) + 1);
+  }
+
+  onehundred() {
+    this.rollArray.push(Math.round(Math.random() * 99) + 1);
+  }
 }

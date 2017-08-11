@@ -1,12 +1,29 @@
-<div class="roll-prompt">
-    Start Roll
+<div id="dice-holder">
+  <div id="4">
+    <button type="button" name="button" (click)="four()">Four Sided</button>
+  </div>
+  <div id="6">
+    <button type="button" name="button" (click)="six()">Six Sided</button>
+  </div>
+  <div id="8">
+    <button type="button" name="button" (click)="eight()">Eight Sided</button>
+  </div>
+  <div id="10">
+    <button type="button" name="button" (click)="ten()">Ten Sided</button>
+  </div>
+  <div id="12">
+    <button type="button" name="button" (click)="twelve()">Twelve Sided</button>
+  </div>
+  <div id="20">
+    <button type="button" name="button" (click)="twenty()">Twenty Sided</button>
+  </div>
+  <div id="100">
+    <button type="button" name="button" (click)="onehundred()">Onehundred Sided</button>
+  </div>
 </div>
 
-    <div [innerHtml]="dice1" class="dice-piece">
-    </div>
-    <div [innerHtml]="dice2" class="dice-piece">
-    </div>
-    <div [innerHtml]="dice3" class="dice-piece">
-    </div>
-    <div [innerHtml]="dice4" class="dice-piece">
-    </div>
+<div id="roll-results">
+  <div class="roll" *ngFor="let roll of rollArray">
+    {{roll}}
+  </div>
+</div>
